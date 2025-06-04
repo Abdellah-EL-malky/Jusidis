@@ -10,7 +10,6 @@ use Core\Decorators\Description;
 use Core\Decorators\Route;
 use Core\Router\RouteMethod;
 
-#[Route('/api/v1')]
 class AvocatController extends Controller implements ResourceController
 {
     private AvocatService $avocatService;
