@@ -77,7 +77,7 @@ class HistoriqueRepository extends RepositoryMutations
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if (!$data) {
-            throw new \Exception("Historique with ID $historiqueId not found.");
+            throw new \Exception("Historique avec l'ID $historiqueId introuvable.");
         }
         
         return $this->mapper($data);
