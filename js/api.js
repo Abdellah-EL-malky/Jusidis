@@ -65,76 +65,76 @@ class CabinetAPI {
     }
 
     async getClients() {
-        return this.get('/clients');
+        return this.get('clients');
     }
 
     async getClient(id) {
-        return this.get(`/clients/${id}`);
+        return this.get(`clients/${id}`);
     }
 
     async getClientWithStats(id) {
-        return this.get(`/clients/${id}?with_stats=true`);
+        return this.get(`clients/${id}?with_stats=true`);
     }
 
     async createClient(clientData) {
-        return this.post('/clients', clientData);
+        return this.post('clients', clientData);
     }
 
     async updateClient(id, clientData) {
-        return this.patch(`/clients/${id}`, clientData);
+        return this.patch(`clients/${id}`, clientData);
     }
 
     async deleteClient(id) {
-        return this.delete(`/clients/${id}`);
+        return this.delete(`clients/${id}`);
     }
 
     async searchClients(filters) {
         const params = new URLSearchParams(filters).toString();
-        return this.get(`/clients?${params}`);
+        return this.get(`clients?${params}`);
     }
 
     async getAvocats() {
-        return this.get('/avocats');
+        return this.get('avocats');
     }
 
     async getAvocat(id) {
-        return this.get(`/avocats/${id}`);
+        return this.get(`avocats/${id}`);
     }
 
     async getAvocatWithStats(id) {
-        return this.get(`/avocats/${id}?with_stats=true`);
+        return this.get(`avocats/${id}?with_stats=true`);
     }
 
     async getAvailableAvocats() {
-        return this.get('/avocats?disponibles_seulement=true');
+        return this.get('avocats?disponibles_seulement=true');
     }
 
     async getCertifiedAvocats() {
-        return this.get('/avocats?certifies_seulement=true');
+        return this.get('avocats?certifies_seulement=true');
     }
 
     async createAvocat(avocatData) {
-        return this.post('/avocats', avocatData);
+        return this.post('avocats', avocatData);
     }
 
     async updateAvocat(id, avocatData) {
-        return this.patch(`/avocats/${id}`, avocatData);
+        return this.patch(`avocats/${id}`, avocatData);
     }
 
     async deleteAvocat(id) {
-        return this.delete(`/avocats/${id}`);
+        return this.delete(`avocats/${id}`);
     }
 
     async certifyAvocat(id) {
-        return this.patch(`/avocats/certifier/${id}`, {});
+        return this.patch(`avocats/certifier/${id}`, {});
     }
 
     async uncertifyAvocat(id) {
-        return this.patch(`/avocats/decertifier/${id}`, {});
+        return this.patch(`avocats/decertifier/${id}`, {});
     }
 
     async updateAvocatCapacity(id, newCapacity) {
-        return this.patch(`/avocats/capacite/${id}`, { nouvelle_capacite: newCapacity });
+        return this.patch(`avocats/capacite/${id}`, { nouvelle_capacite: newCapacity });
     }
 
     async findBestAvocatForDossierType(typeDossierId, specialisation = null) {
@@ -143,71 +143,71 @@ class CabinetAPI {
     }
 
     async getDossiers() {
-        return this.get('/dossier-juridiques');
+        return this.get('dossier-juridiques');
     }
 
     async getDossier(id) {
-        return this.get(`/dossier-juridiques/${id}`);
+        return this.get(`dossier-juridiques/${id}`);
     }
 
     async getDossierWithStats(id) {
-        return this.get(`/dossier-juridiques/${id}?with_stats=true`);
+        return this.get(`dossier-juridiques/${id}?with_stats=true`);
     }
 
     async createDossier(dossierData) {
-        return this.post('/dossier-juridiques', dossierData);
+        return this.post('dossier-juridiques', dossierData);
     }
 
     async updateDossier(id, dossierData) {
-        return this.patch(`/dossier-juridiques/${id}`, dossierData);
+        return this.patch(`dossier-juridiques/${id}`, dossierData);
     }
 
     async deleteDossier(id) {
-        return this.delete(`/dossier-juridiques/${id}`);
+        return this.delete(`dossier-juridiques/${id}`);
     }
 
     async assignAvocat(dossierId, avocatId) {
-        return this.patch(`/dossier-juridiques/assigner-avocat/${dossierId}`, { avocat_id: avocatId });
+        return this.patch(`dossier-juridiques/assigner-avocat/${dossierId}`, { avocat_id: avocatId });
     }
 
     async unassignAvocat(dossierId) {
-        return this.patch(`/dossier-juridiques/desassigner-avocat/${dossierId}`, {});
+        return this.patch(`dossier-juridiques/desassigner-avocat/${dossierId}`, {});
     }
 
     async changeDossierStatus(dossierId, newStatus) {
-        return this.patch(`/dossier-juridiques/changer-statut/${dossierId}`, { nouveau_statut: newStatus });
+        return this.patch(`dossier-juridiques/changer-statut/${dossierId}`, { nouveau_statut: newStatus });
     }
 
     async closeDossier(dossierId) {
-        return this.patch(`/dossier-juridiques/cloturer/${dossierId}`, {});
+        return this.patch(`dossier-juridiques/cloturer/${dossierId}`, {});
     }
 
     async reopenDossier(dossierId) {
-        return this.patch(`/dossier-juridiques/reouvrir/${dossierId}`, {});
+        return this.patch(`dossier-juridiques/reouvrir/${dossierId}`, {});
     }
 
     async archiveDossier(dossierId) {
-        return this.patch(`/dossier-juridiques/archiver/${dossierId}`, {});
+        return this.patch(`dossier-juridiques/archiver/${dossierId}`, {});
     }
 
     async getDossiersByClient(clientId) {
-        return this.get(`/dossier-juridiques/client/${clientId}`);
+        return this.get(`dossier-juridiques/client/${clientId}`);
     }
 
     async getDossiersByAvocat(avocatId) {
-        return this.get(`/dossier-juridiques/avocat/${avocatId}`);
+        return this.get(`dossier-juridiques/avocat/${avocatId}`);
     }
 
     async findBestAvocatForDossier(dossierId) {
-        return this.get(`/dossier-juridiques/meilleur-avocat/${dossierId}`);
+        return this.get(`dossier-juridiques/meilleur-avocat/${dossierId}`);
     }
 
     async canCloseDossier(dossierId) {
-        return this.get(`/dossier-juridiques/peut-cloturer/${dossierId}`);
+        return this.get(`dossier-juridiques/peut-cloturer/${dossierId}`);
     }
 
     async getGeneralStatistics() {
-        return this.get('/dossier-juridiques/statistiques');
+        return this.get('dossier-juridiques/statistiques');
     }
 
     async getEtapes(filters = {}) {
